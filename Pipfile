@@ -8,6 +8,7 @@ pylint = "*"
 black = "*"
 ipython = "*"
 mypy = "*"
+rope = "*"
 
 [packages]
 requests = "==2.19.1"

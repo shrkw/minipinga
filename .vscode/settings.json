@@ -1,4 +1,6 @@
 {
+    "editor.renderWhitespace": "all",
+    "editor.detectIndentation": true,
     "python.venvPath": ".venv",
     "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
     "python.linting.enabled": true,
