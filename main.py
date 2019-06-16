@@ -1,6 +1,6 @@
 import dataclasses
 import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 from urllib.parse import urlparse
 
 import lxml.html
@@ -41,7 +41,7 @@ def check_update(sub: Dict) -> Optional[str]:
         raise AssertionError("unknown host!", sub)
 
 
-def main(opt) -> None:
+def minipinga(data: Dict, context: Any) -> None:
     subs_ref = db.collection("subscriptions")
     for sub in subs_ref.stream():
         sub_dict = sub.to_dict()
@@ -54,4 +54,4 @@ def main(opt) -> None:
 
 
 if __name__ == "__main__":
-    main({})
+    minipinga(dict(), None)
