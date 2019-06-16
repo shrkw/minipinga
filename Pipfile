@@ -14,6 +14,7 @@ rope = "*"
 requests = "==2.19.1"
 lxml = "*"
 slackclient = "*"
+google-cloud-firestore = "*"
 
 [requires]
 python_version = "3.7"
