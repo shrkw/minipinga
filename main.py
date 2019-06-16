@@ -6,6 +6,8 @@ from urllib.parse import urlparse
 import lxml.html
 import requests
 
+import notifier
+
 
 def hostname(url: str) -> str:
     return urlparse(url).hostname
@@ -60,10 +62,6 @@ def save(url: str, text: str):
     pass
 
 
-def notify(text: str):
-    print(text)
-
-
 def check_update(sub: Subscription) -> Tuple[bool, Optional[str]]:
     r = requests.get(sub.url)
     html = lxml.html.fromstring(r.content)
@@ -84,7 +82,7 @@ def main(opt):
     for sub in subscriptions:
         updated, indication_text_value = check_update(sub)
         if updated:
-            notify(f"{sub.title} が {indication_text_value} に更新されている可能性があります {sub.url}")
+            notifier.notify(f"{sub.title} が {indication_text_value} に更新されている可能性があります {sub.url}")
 
 
 if __name__ == "__main__":

@@ -13,6 +13,7 @@ rope = "*"
 [packages]
 requests = "==2.19.1"
 lxml = "*"
+slackclient = "*"
 
 [requires]
 python_version = "3.7"
