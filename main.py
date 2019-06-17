@@ -18,7 +18,12 @@ def hostname(url: str) -> str:
 
 def save(id: str, indication_text_value: str) -> None:
     doc_ref = db.collection("subscriptions").document(id)
-    doc_ref.update({"indication_text_value": indication_text_value})
+    doc_ref.update(
+        {
+            "indication_text_value": indication_text_value,
+            "last_checked_date": datetime.datetime.now(),
+        }
+    )
 
 
 def check_update(sub: Dict) -> Optional[str]:
@@ -47,6 +52,7 @@ def minipinga(data: Dict, context: Any) -> None:
         sub_dict = sub.to_dict()
         indication_text_value = check_update(sub_dict)
         if indication_text_value:
+            print(f"{sub_dict['title']} may be updated at {indication_text_value}")
             notifier.notify(
                 f"{sub_dict['title']} が {indication_text_value} に更新されている可能性があります {sub_dict['url']}"
             )
