@@ -1,4 +1,4 @@
-<img src="https://user-images.githubusercontent.com/275147/59665389-c468f400-91ed-11e9-896f-5eccbc654192.png" width="300" height="300">
+<img src="https://user-images.githubusercontent.com/275147/59666096-283fec80-91ef-11e9-9172-ed4d2607bd08.png" width="300" height="300">
 
 # minipinga
 mini clone for pinga https://twitter.com/pinga_comic
