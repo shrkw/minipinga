@@ -1,7 +1,7 @@
 # minipinga
-mini clone for pinga
+mini clone for pinga https://twitter.com/pinga_comic
 
-## Expectations
+## Prerequisites
 ### Cloud Firestore
 ```
 manga_sites
