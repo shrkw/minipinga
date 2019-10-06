@@ -78,9 +78,10 @@ def minipinga(data: Dict, context: Any) -> None:
         sub_dict = sub.to_dict()
         indication_text_value = check_update(sub_dict)
         if indication_text_value:
+            content_url = sub_dict.get("content_url", sub_dict["url"])
             print(f"{sub_dict['title']} may be updated at {indication_text_value}")
             notifier.notify(
-                f"{sub_dict['title']} が {indication_text_value} に更新されている可能性があります {sub_dict['url']}"
+                f"{sub_dict['title']} が {indication_text_value} に更新されている可能性があります {content_url}"
             )
             save(sub.id, indication_text_value)
 
