@@ -26,21 +26,21 @@ def save(id: str, indication_text_value: str) -> None:
     )
 
 
-def dparse(dic: Dict, query: str, sep: str = "/", default=None) -> Optional[str]:
+def dparse(dic: Dict, query: str, sep: str = "/") -> str:
     words = query.split(sep)
 
-    def _(dic_, words_, default):
+    def _(dic_, words_):
         if len(words_) == 0:
-            return default
+            raise AssertionError("elements for the query are not found")
         if len(words_) == 1:
-            return dic_.get(words_[0], default)
+            return dic_[words_[0]]
         else:
-            return _(dic_.get(words_[0], {}), words_[1:], default)
+            return _(dic_.get(words_[0], {}), words_[1:])
 
-    return _(dic, words, default=None)
+    return _(dic, words)
 
 
-def get_indicator(manga_site, content):
+def get_indicator(manga_site: Dict, content: bytes) -> str:
     style = manga_site.get("style", "html")
     if style == "json":
         import json
